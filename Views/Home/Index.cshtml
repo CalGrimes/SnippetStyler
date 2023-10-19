@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="box center">
+    <div class="searchDropdown">
+        <label for="searchDropdownInput">Language:</label>
+        <input type="text" placeholder="Search.." onfocus="toggleDropdownContent()" onblur="toggleDropdownContent()" id="searchDropdownInput" onkeyup="filterFunction()" />
+        <div id="dropdown" class="dropdown-content hidden">
+            <a href="#bash">Bash</a>
+            <a href="#ps1">Powershell</a>
+            <a href="#java">Java</a>
+            <a href="#csharp">C#</a>
+            <a href="#python">Python</a>
+        </div>
+    </div>
+
+    <div class="box center secondary-color">
+        
+    </div>
+</div>
+
+
+<script>
+    function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("searchDropdownInput");
+    filter = input.value.toUpperCase();
+        div = document.getElementById("dropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+
+    function toggleDropdownContent() {
+        document.getElementById("dropdown").classList.toggle("hidden");
+    }
+</script>

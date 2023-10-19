@@ -1,0 +1,68 @@
+﻿:root {
+    --primary-color: #FCFAF8;
+    --primary-color-dark: #070503;
+    --secondary-color: #cfcecf;
+    --secondary-color-dark: #313031;
+    --accent-color: #609063;
+}
+
+body {
+    background-color: var(--primary-color);
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.box {
+    height: auto;
+    min-height: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.secondary-color {
+    background-color: var(--secondary-color);
+}
+
+
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    border: 1px solid #ddd;
+}
+
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
