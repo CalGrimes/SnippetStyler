@@ -5,24 +5,26 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="box center">
+<div class="box">
     <div class="searchDropdown">
-        <label for="searchDropdownInput">Language:</label>
+        <label for="searchDropdownInput" class="mr-4 ml-10">Language:</label>
+        <div class="inline">
         <input type="text" placeholder="Search.." onfocus="toggleDropdownContent()" onblur="toggleDropdownContent()" id="searchDropdownInput" onkeyup="filterFunction()" />
-        <div id="dropdown" class="dropdown-content hidden">
-            <a href="#bash">Bash</a>
-            <a href="#ps1">Powershell</a>
-            <a href="#java">Java</a>
-            <a href="#csharp">C#</a>
-            <a href="#python">Python</a>
+        <label id="selection"></label>
+        <div id="dropdown" class="dropdown-content hidden  w-100">
+            <a href="#bash" onclick="selectItem('Bash')">Bash</a>
+            <a href="#ps1" onclick="selectItem('Powershell')">Powershell</a>
+            <a href="#java" onclick="selectItem('Java')">Java</a>
+            <a href="#csharp" onclick="selectItem('C#')">C#</a>
+            <a href="#python" onclick="selectItem('Python')">Python</a>
+        </div>
         </div>
     </div>
 
     <div class="box center secondary-color">
-        
+        <textarea class="box center noResize" id="codeSnippet" rows="10" placeholder="Enter code snippet here..."></textarea>
     </div>
 </div>
-
 
 <script>
     function filterFunction() {
@@ -31,17 +33,26 @@
     filter = input.value.toUpperCase();
         div = document.getElementById("dropdown");
     a = div.getElementsByTagName("a");
-    for (i = 0; i < a.length; i++) {
-        txtValue = a[i].textContent || a[i].innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
-        } else {
-            a[i].style.display = "none";
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
         }
     }
-}
 
     function toggleDropdownContent() {
+        console.log("toggleDropdownContent");
         document.getElementById("dropdown").classList.toggle("hidden");
+        document.getElementById("dropdown").classList.toggle("visible");
+    }
+
+    function selectItem(item) {
+        var selectionLabel = document.getElementById("selection");
+        console.log(selectionLabel);
+        selectionLabel.innerText = item;
+        toggleDropdownContent();
     }
 </script>
